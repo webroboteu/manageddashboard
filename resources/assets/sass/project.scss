@@ -1,0 +1,138 @@
+.project-page {
+    margin : 50px 0;
+}
+
+.project-page .panel {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.project-page .userpic-avatar {
+    border        : 2px solid #ffffff;
+}
+
+.project-page .profile-usermenu ul {
+    margin     : 20px 0;
+    list-style : none;
+    display    : block;
+}
+
+.project-page .profile-usermenu ul li {
+    display : block;
+}
+
+.project-page .profile-usermenu ul li i {
+    float       : right;
+    color       : rgb(82, 82, 82);
+    line-height : 25px;
+    font-size   : 1.1em;
+}
+
+.project-page .profile-usermenu ul li a {
+    color         : rgb(0, 0, 0);
+    padding-right : 30px;
+}
+
+.project-page .profile-usermenu ul li a.active {
+    text-decoration : none;
+    color           : rgb(0, 138, 143);
+    font-weight     : bold;
+}
+
+.project-page .profile-usertitle-name {
+    font-size  : 1em;
+    margin     : 20px 0;
+    text-align : center;
+    color      : rgb(0, 131, 136);
+}
+
+.project-page .profile-content {
+    padding : 20px 20px 20px 50px;
+}
+
+h2.project-page-title {
+    text-align  : center;
+    font-size   : 1.4em;
+    font-weight : bold;
+    color       : rgb(0, 131, 136);
+}
+
+.project-page .input-group {
+    margin-top : 30px;
+}
+
+.project-page .input-group .input-group-prepend {
+    min-width    : 120px;
+    text-align   : left;
+    background   : rgb(236, 236, 236);
+    border       : 1px solid rgb(0, 131, 136);
+    border-right : none;
+    font-size    : 1em;
+    height       : 45px;
+}
+
+.project-page .input-group input {
+    border-radius : 3px;
+    border        : 1px solid rgb(0, 131, 136);
+    border-left   : none;
+}
+
+.project-page .input-group select {
+    border-radius : 3px;
+    border        : 1px solid rgb(0, 131, 136);
+    border-left   : none;
+    height        : 45px !important;
+}
+
+.project-page .input-group input:disabled {
+    background-color : rgb(177, 177, 177);
+
+}
+
+.project-page .input-group input:focus {
+    border : 2px solid rgb(0, 131, 136);
+}
+
+.project-page button {
+    border-radius : 3px;
+    margin        : 0;
+    border        : 1px solid rgb(158, 158, 158);
+}
+
+.project-page button:hover {
+    background-color : rgb(0, 131, 136);
+}
+
+.project-page .text-danger small {
+    font-size : 1em;
+    color     : rgb(240, 0, 0);
+}
+
+.project-page .btn-bs-file {
+    position      : relative;
+    width         : 100%;
+    border        : 2px solid rgb(0, 131, 136);
+    border-radius : 3px;
+
+}
+
+.project-page .btn-bs-file:hover {
+    cursor           : pointer;
+    background-color : rgb(0, 131, 136);
+}
+
+.project-page .btn-bs-file input[type="file"] {
+    position : absolute;
+    top      : -9999999px;
+    filter   : alpha(opacity=0);
+    opacity  : 0;
+    width    : 0;
+    height   : 0;
+    outline  : none;
+    cursor   : inherit;
+}
+
+.project-page .customer-help {
+    margin : 20px 0;
+
+}

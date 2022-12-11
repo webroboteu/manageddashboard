@@ -1,0 +1,9 @@
+{
+  "name": "Managed data scraper service",
+  "namespace": "Botble\\webrobotdashboard\\",
+  "provider": "Botble\\webrobotdashboard\\Providers\\MemberServiceProvider",
+  "author": "WebRobot Ltd",
+  "url": "https://www.webrobot.eu",
+  "version": "0.1",
+  "description": "Dashboard of managed data scraper service"
+}
