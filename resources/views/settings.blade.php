@@ -1,10 +1,10 @@
 <div class="flexbox-annotated-section">
     <div class="flexbox-annotated-section-annotation">
         <div class="annotated-section-title pd-all-20">
-            <h2>{{ trans('plugins/webrobot-dashboard::settings.title') }}</h2>
+            <h2>{{ trans('plugins/webrobotdashboard::settings.title') }}</h2>
         </div>
         <div class="annotated-section-description pd-all-20 p-none-t">
-            <p class="color-note">{{ trans('plugins/webrobot-dashboard::settings.description') }}</p>
+            <p class="color-note">{{ trans('plugins/webrobotdashboard::settings.description') }}</p>
         </div>
     </div>
 
@@ -15,9 +15,9 @@
                     <input type="hidden" name="verify_account_email" value="0">
                     <label>
                         <input type="checkbox"  value="1" @if (setting('verify_account_email', 0)) checked @endif name="verify_account_email">
-                        {{ trans('plugins/webrobot-dashboard::settings.verify_account_email') }}
+                        {{ trans('plugins/webrobotdashboard::settings.verify_account_email') }}
                     </label>
-                    <span class="help-ts">{{ trans('plugins/webrobot-dashboard::settings.verify_account_email_description') }}</span>
+                    <span class="help-ts">{{ trans('plugins/webrobotdashboard::settings.verify_account_email_description') }}</span>
                 </div>
             </div>
 
@@ -26,9 +26,9 @@
                     <input type="hidden" name="member_enable_recaptcha_in_register_page" value="0">
                     <label>
                         <input type="checkbox"  value="1" @if (setting('member_enable_recaptcha_in_register_page', 0)) checked @endif name="member_enable_recaptcha_in_register_page">
-                        {{ trans('plugins/webrobot-dashboard::settings.enable_recaptcha_in_register_page') }}
+                        {{ trans('plugins/webrobotdashboard::settings.enable_recaptcha_in_register_page') }}
                     </label>
-                    <span class="help-ts">{{ trans('plugins/webrobot-dashboard::settings.enable_recaptcha_in_register_page_description') }}</span>
+                    <span class="help-ts">{{ trans('plugins/webrobotdashboard::settings.enable_recaptcha_in_register_page_description') }}</span>
                 </div>
             @endif
         </div>

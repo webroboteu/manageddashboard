@@ -16,13 +16,13 @@ class ProjectForm extends FormAbstract
      */
     public function buildForm()
     {
-        Assets::addScriptsDirectly(['/vendor/core/plugins/webrobot-dashboard/js/project-admin.js']);
+        Assets::addScriptsDirectly(['/vendor/core/plugins/webrobotdashboard/js/project-admin.js']);
         $this
             ->setupModel(new Project())
             ->setValidatorClass(ProjectCreateRequest::class)
             ->withCustomFields()
             ->add('name', 'text', [
-                'label' => trans('plugins/webrobot-dashboard::project.name'),
+                'label' => trans('plugins/webrobotdashboard::project.name'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
                     'placeholder' => trans('core/base::forms.name_placeholder'),
@@ -31,7 +31,7 @@ class ProjectForm extends FormAbstract
             ])
           
             ->add('description', 'textarea', [
-                'label' => trans('plugins/webrobot-dashboard::project.description'),
+                'label' => trans('plugins/webrobotdashboard::project.description'),
                 'label_attr' => ['class' => 'control-label'],
                 'attr' => [
                     'rows' => 4,
@@ -40,12 +40,12 @@ class ProjectForm extends FormAbstract
                 ],
             ])
             ->add('status', 'customSelect', [
-                'label' => trans('plugins/webrobot-dashboard::project.status'),
+                'label' => trans('plugins/webrobotdashboard::project.status'),
                 'label_attr' => ['class' => 'control-label required'],
                 'choices' => StatusEnum::labels(),
             ])
             ->add('frequency', 'customSelect', [
-                'label' => trans('plugins/webrobot-dashboard::project.frequency'),
+                'label' => trans('plugins/webrobotdashboard::project.frequency'),
                 'label_attr' => ['class' => 'control-label required'],
                 'choices' => FrequencyEnum::labels(),
             ])

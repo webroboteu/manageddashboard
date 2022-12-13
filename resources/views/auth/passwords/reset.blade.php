@@ -1,11 +1,11 @@
-@extends('plugins/webrobot-dashboard::layouts.skeleton')
+@extends('plugins/webrobotdashboard::layouts.skeleton')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card login-form">
                     <div class="card-body">
-                        <h4 class="text-center">{{ trans('plugins/webrobot-dashboard::dashboard.reset-password-title') }}</h4>
+                        <h4 class="text-center">{{ trans('plugins/webrobotdashboard::dashboard.reset-password-title') }}</h4>
                         <br>
                         <form method="POST" action="{{ route('public.member.password.update') }}">
                             @csrf
@@ -14,7 +14,7 @@
                                 <input id="email" type="email"
                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                        name="email" value="{{ $email or old('email') }}" required autofocus
-                                       placeholder="{{ trans('plugins/webrobot-dashboard::dashboard.email') }}">
+                                       placeholder="{{ trans('plugins/webrobotdashboard::dashboard.email') }}">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -25,7 +25,7 @@
                                 <input id="password" type="password"
                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                        name="password" required
-                                       placeholder="{{ trans('plugins/webrobot-dashboard::dashboard.password') }}">
+                                       placeholder="{{ trans('plugins/webrobotdashboard::dashboard.password') }}">
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -36,7 +36,7 @@
                                 <input id="password-confirm" type="password"
                                        class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
                                        name="password_confirmation" required
-                                       placeholder="{{ trans('plugins/webrobot-dashboard::dashboard.password-confirmation') }}">
+                                       placeholder="{{ trans('plugins/webrobotdashboard::dashboard.password-confirmation') }}">
                                 @if ($errors->has('password_confirmation'))
                                     <span class="invalid-feedback">
                                     <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-blue btn-full fw6">
-                                    {{ trans('plugins/webrobot-dashboard::dashboard.reset-password-cta') }}
+                                    {{ trans('plugins/webrobotdashboard::dashboard.reset-password-cta') }}
                                 </button>
                             </div>
                         </form>

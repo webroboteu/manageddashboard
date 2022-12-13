@@ -49,6 +49,6 @@ class MemberActivityLog extends BaseModel
 
         $time = Html::tag('span', $this->created_at->diffForHumans(), ['class' => 'small italic']);
 
-        return trans('plugins/webrobot-dashboard::dashboard.actions.' . $this->action, ['name' => $name]) . ' . ' . $time;
+        return trans('plugins/webrobotdashboard::dashboard.actions.' . $this->action, ['name' => $name]) . ' . ' . $time;
     }
 }

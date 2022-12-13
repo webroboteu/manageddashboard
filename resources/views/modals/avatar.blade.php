@@ -4,7 +4,7 @@
         <div class="modal-content">
             <form class="avatar-form" method="post" action="{{ route('public.member.avatar') }}" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="avatar-modal-label"><i class="til_img"></i><strong>{{ trans('plugins/webrobot-dashboard::dashboard.change_profile_image') }}</strong></h4>
+                    <h4 class="modal-title" id="avatar-modal-label"><i class="til_img"></i><strong>{{ trans('plugins/webrobotdashboard::dashboard.change_profile_image') }}</strong></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -16,11 +16,11 @@
                             <input class="avatar-src" name="avatar_src" type="hidden">
                             <input class="avatar-data" name="avatar_data" type="hidden">
                             @csrf
-                            <label for="avatarInput">{{ trans('plugins/webrobot-dashboard::dashboard.new_image') }}</label>
+                            <label for="avatarInput">{{ trans('plugins/webrobotdashboard::dashboard.new_image') }}</label>
                             <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
                         </div>
 
-                        <div class="loading" tabindex="-1" role="img" aria-label="{{ trans('plugins/webrobot-dashboard::dashboard.loading') }}"></div>
+                        <div class="loading" tabindex="-1" role="img" aria-label="{{ trans('plugins/webrobotdashboard::dashboard.loading') }}"></div>
 
                         <!-- Crop and preview -->
                         <div class="row">
@@ -36,8 +36,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">{{ trans('plugins/webrobot-dashboard::dashboard.close') }}</button>
-                    <button class="btn btn-primary avatar-save" type="submit">{{ trans('plugins/webrobot-dashboard::dashboard.save') }}</button>
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">{{ trans('plugins/webrobotdashboard::dashboard.close') }}</button>
+                    <button class="btn btn-primary avatar-save" type="submit">{{ trans('plugins/webrobotdashboard::dashboard.save') }}</button>
                 </div>
             </form>
         </div>

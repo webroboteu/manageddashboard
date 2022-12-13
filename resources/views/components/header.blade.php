@@ -21,17 +21,17 @@
         @if (!auth('member')->check())
           <li>
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.login') }}">
-                <i class="fas fa-sign-in-alt"></i> {{ trans('plugins/webrobot-dashboard::dashboard.login-cta') }}
+                <i class="fas fa-sign-in-alt"></i> {{ trans('plugins/webrobotdashboard::dashboard.login-cta') }}
             </a>
           </li>
           <li>
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.register') }}">
-                <i class="fas fa-user-plus"></i> {{ trans('plugins/webrobot-dashboard::dashboard.register-cta') }}
+                <i class="fas fa-user-plus"></i> {{ trans('plugins/webrobotdashboard::dashboard.register-cta') }}
             </a>
           </li>
         @else
           <li>
-            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.dashboard') }}" title="{{ trans('plugins/webrobot-dashboard::dashboard.header_profile_link') }}">
+            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.dashboard') }}" title="{{ trans('plugins/webrobotdashboard::dashboard.header_profile_link') }}">
               <span>
                 <img src="{{ auth('member')->user()->avatar_url }}" class="br-100 v-mid mr1" style="width: 30px;">
                 <span>{{ auth('member')->user()->name }}</span>
@@ -39,17 +39,17 @@
             </a>
           </li>
           <li>
-            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.settings') }}" title="{{ trans('plugins/webrobot-dashboard::dashboard.header_settings_link') }}">
-              <i class="fas fa-cogs mr1"></i>{{ trans('plugins/webrobot-dashboard::dashboard.header_settings_link') }}
+            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="{{ route('public.member.settings') }}" title="{{ trans('plugins/webrobotdashboard::dashboard.header_settings_link') }}">
+              <i class="fas fa-cogs mr1"></i>{{ trans('plugins/webrobotdashboard::dashboard.header_settings_link') }}
             </a>
           </li>
           {!! apply_filters(MEMBER_TOP_MENU_FILTER, null) !!}
           @if (is_plugin_active('blog'))
-              @include('plugins/webrobot-dashboard::components.menu')
+              @include('plugins/webrobotdashboard::components.menu')
           @endif
           <li>
-            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('plugins/webrobot-dashboard::dashboard.header_logout_link') }}">
-              <i class="fas fa-sign-out-alt mr1"></i><span class="dn-ns">{{ trans('plugins/webrobot-dashboard::dashboard.header_logout_link') }}</span>
+            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('plugins/webrobotdashboard::dashboard.header_logout_link') }}">
+              <i class="fas fa-sign-out-alt mr1"></i><span class="dn-ns">{{ trans('plugins/webrobotdashboard::dashboard.header_logout_link') }}</span>
             </a>
             <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">
               @csrf

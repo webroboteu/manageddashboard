@@ -1,4 +1,4 @@
-@extends('plugins/webrobot-dashboard::layouts.skeleton')
+@extends('plugins/webrobotdashboard::layouts.skeleton')
 @section('content')
     <div class="container">
         @if ($showStart)

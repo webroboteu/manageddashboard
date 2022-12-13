@@ -112,7 +112,7 @@ class ProjectTable extends TableAbstract
                 'width' => '20px',
             ],
             'member_id' => [
-                'title' => trans('plugins/webrobot-dashboard::member'),
+                'title' => trans('plugins/webrobotdashboard::member'),
                 'width' => '150px',
                 'class' => 'no-sort text-center',
                 'orderable' => false,
@@ -122,16 +122,16 @@ class ProjectTable extends TableAbstract
                 'class' => 'text-start',
             ],
             'description' => [
-                'title' => trans('plugins/webrobot-dashboard::project.description'),
+                'title' => trans('plugins/webrobotdashboard::project.description'),
                 'class' => 'text-start',
             ],
             'status' => [
-                'title' => trans('plugins/webrobot-dashboard::project.status'),
+                'title' => trans('plugins/webrobotdashboard::project.status'),
                 'width' => '100px',
                 'class' => 'text-center',
             ],
             'frequency' => [
-                'title' => trans('plugins/webrobot-dashboard::project.frequency'),
+                'title' => trans('plugins/webrobotdashboard::project.frequency'),
                 'width' => '100px',
                 'class' => 'text-center',
             ],
@@ -165,23 +165,23 @@ class ProjectTable extends TableAbstract
     {
         return [
             'name' => [
-                'title' => trans('plugins/webrobot-dashboard::project.name'),
+                'title' => trans('plugins/webrobotdashboard::project.name'),
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
             'description' => [
-                'title' => trans('plugins/webrobot-dashboard::project.description'),
+                'title' => trans('plugins/webrobotdashboard::project.description'),
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
             'status' => [
-                'title' => trans('plugins/webrobot-dashboard::project.status'),
+                'title' => trans('plugins/webrobotdashboard::project.status'),
                 'type' => 'customSelect',
                 'choices' => StatusEnum::labels(),
                 'validate' => 'required|in:' . implode(',', StatusEnum::values()),
             ],
             'frequency' => [
-                'title' => trans('plugins/webrobot-dashboard::project.frequency'),
+                'title' => trans('plugins/webrobotdashboard::project.frequency'),
                 'type' => 'customSelect',
                 'choices' => FrequencyEnum::labels(),
                 'validate' => 'required|in:' . implode(',', FrequencyEnum::values()),

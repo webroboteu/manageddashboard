@@ -59,7 +59,7 @@ class ResetPasswordController extends Controller
             return Theme::scope('member.auth.passwords.reset', ['token' => $token, 'email' => $request->email])->render();
         }
 
-        return view('plugins/webrobot-dashboard::auth.passwords.reset', ['token' => $token, 'email' => $request->email]);
+        return view('plugins/webrobotdashboard::auth.passwords.reset', ['token' => $token, 'email' => $request->email]);
     }
 
     /**

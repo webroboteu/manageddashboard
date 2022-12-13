@@ -99,15 +99,15 @@ class TaskTable extends TableAbstract
                 'width' => '20px',
             ],
             'date' => [
-                'title' => trans('plugins/webrobot-dashboard::task.date'),
+                'title' => trans('plugins/webrobotdashboard::task.date'),
                 'class' => 'text-start',
             ],
             'quantity' => [
-                'title' => trans('plugins/webrobot-dashboard::task.quantity'),
+                'title' => trans('plugins/webrobotdashboard::task.quantity'),
                 'class' => 'text-start',
             ],
             'dataset' => [
-                'title' => trans('plugins/webrobot-dashboard::task.dataset'),
+                'title' => trans('plugins/webrobotdashboard::task.dataset'),
                 'class' => 'text-start',
             ],
             'created_at' => [
@@ -140,17 +140,17 @@ class TaskTable extends TableAbstract
     {
         return [
             'date' => [
-                'title' => trans('plugins/webrobot-dashboard::task.date'),
+                'title' => trans('plugins/webrobotdashboard::task.date'),
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
             'quantity' => [
-                'title' => trans('plugins/webrobot-dashboard::task.quantity'),
+                'title' => trans('plugins/webrobotdashboard::task.quantity'),
                 'width' => '100px',
                 'class' => 'text-center',
             ],
             'dataset' => [
-                'title' => trans('plugins/webrobot-dashboard::task.dataset'),
+                'title' => trans('plugins/webrobotdashboard::task.dataset'),
                 'width' => '100px',
                 'class' => 'text-center',
             ],

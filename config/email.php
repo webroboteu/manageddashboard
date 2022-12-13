@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name' => 'plugins/webrobot-dashboard::member.settings.email.title',
-    'description' => 'plugins/webrobot-dashboard::member.settings.email.description',
+    'name' => 'plugins/webrobotdashboard::member.settings.email.title',
+    'description' => 'plugins/webrobotdashboard::member.settings.email.description',
     'templates' => [
         'confirm-email' => [
             'title' => 'Confirm email',

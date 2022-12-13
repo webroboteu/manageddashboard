@@ -59,7 +59,33 @@ class PublicController extends Controller
         $this->activityLogRepository = $memberActivityLogRepository;
         $this->fileRepository = $fileRepository;
 
-        Assets::setConfig($config->get('plugins.webrobot-dashboard.assets', []));
+        Assets::setConfig($config->get('plugins.webrobotdashboard.assets', []));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function getDashboardProjects()
+    {
+        
+        SeoHelper::setTitle("Projects");
+
+        Assets::addScriptsDirectly(['vendor/core/plugins/webrobotdashboard/libraries/cropper.js']);
+
+        return view('plugins/webrobotdashboard::dashboard.projects', compact('user'));
+    }
+
+      /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function getDashboardTasks($idProject)
+    {
+        
+        SeoHelper::setTitle("Tasks");
+
+        Assets::addScriptsDirectly(['vendor/core/plugins/webrobotdashboard/libraries/cropper.js']);
+
+        return view('plugins/webrobotdashboard::dashboard.tasks', compact('user'));
     }
 
     /**
@@ -71,9 +97,9 @@ class PublicController extends Controller
 
         SeoHelper::setTitle($user->name);
 
-        Assets::addScriptsDirectly(['vendor/core/plugins/webrobot-dashboard/libraries/cropper.js']);
+        Assets::addScriptsDirectly(['vendor/core/plugins/webrobotdashboard/libraries/cropper.js']);
 
-        return view('plugins/webrobot-dashboard::dashboard.index', compact('user'));
+        return view('plugins/webrobotdashboard::dashboard.index', compact('user'));
     }
 
     /**
@@ -87,9 +113,9 @@ class PublicController extends Controller
 
         $user = auth('member')->user();
 
-        Assets::addScriptsDirectly(['vendor/core/plugins/webrobot-dashboard/libraries/cropper.js']);
+        Assets::addScriptsDirectly(['vendor/core/plugins/webrobotdashboard/libraries/cropper.js']);
 
-        return view('plugins/webrobot-dashboard::settings.index', compact('user'));
+        return view('plugins/webrobotdashboard::settings.index', compact('user'));
     }
 
     /**
@@ -133,7 +159,7 @@ class PublicController extends Controller
     {
         SeoHelper::setTitle(__('Security'));
 
-        return view('plugins/webrobot-dashboard::settings.security');
+        return view('plugins/webrobotdashboard::settings.security');
     }
 
     /**
@@ -149,7 +175,7 @@ class PublicController extends Controller
 
         $this->activityLogRepository->createOrUpdate(['action' => 'update_security']);
 
-        return $response->setMessage(trans('plugins/webrobot-dashboard::dashboard.password_update_success'));
+        return $response->setMessage(trans('plugins/webrobotdashboard::dashboard.password_update_success'));
     }
 
     /**
@@ -192,7 +218,7 @@ class PublicController extends Controller
             ]);
 
             return $response
-                ->setMessage(trans('plugins/webrobot-dashboard::dashboard.update_avatar_success'))
+                ->setMessage(trans('plugins/webrobotdashboard::dashboard.update_avatar_success'))
                 ->setData(['url' => RvMedia::url($file->url)]);
         } catch (Exception $exception) {
             return $response

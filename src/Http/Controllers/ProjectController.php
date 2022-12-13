@@ -36,7 +36,7 @@ class ProjectController extends BaseController
      */
     public function index(ProjectTable $dataTable)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::project.menu_name'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::project.menu_name'));
 
         return $dataTable->renderTable();
     }
@@ -47,7 +47,7 @@ class ProjectController extends BaseController
      */
     public function create(FormBuilder $formBuilder)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::project.create'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::project.create'));
         return $formBuilder
             ->create(ProjectForm::class)
             ->renderForm();
@@ -63,7 +63,7 @@ class ProjectController extends BaseController
         $project = $this->projectRepository->getModel();
         $project->fill($request->input());
         $project = $this->projectRepository->createOrUpdate($project);
-        event(new CreatedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
+        //event(new CreatedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
         return $response
             ->setPreviousUrl(route('project.index'))
             ->setNextUrl(route('project.edit', $project->id))
@@ -80,9 +80,9 @@ class ProjectController extends BaseController
     {
         $project = $this->projectRepository->findOrFail($id);
 
-        event(new BeforeEditProjectEvent($request, $project));
+        //event(new BeforeEditProjectEvent($request, $project));
 
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::project.edit'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::project.edit'));
 
         return $formBuilder
             ->create(ProjectForm::class, ['model' => $project])
@@ -100,7 +100,7 @@ class ProjectController extends BaseController
         $project = $this->projectRepository->findOrFail($id);
         $project->fill($request);
         $project = $this->projectRepository->createOrUpdate($project);
-        event(new UpdatedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
+        //event(new UpdatedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
         return $response
             ->setPreviousUrl(route('project.index'))
             ->setMessage(trans('core/base::notices.update_success_message'));

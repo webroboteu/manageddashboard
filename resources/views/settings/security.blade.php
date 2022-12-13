@@ -1,16 +1,16 @@
-@extends('plugins/webrobot-dashboard::layouts.skeleton')
+@extends('plugins/webrobotdashboard::layouts.skeleton')
 @section('content')
   <div class="settings">
     <div class="container">
       <div class="row">
-        @include('plugins/webrobot-dashboard::settings.sidebar')
+        @include('plugins/webrobotdashboard::settings.sidebar')
         <div class="col-12 col-md-9">
             <div class="main-dashboard-form">
           <div class="mb-5">
             <!-- Title -->
             <div class="row">
               <div class="col-12">
-                <h4 class="with-actions">{{ trans('plugins/webrobot-dashboard::dashboard.security_title') }}</h4>
+                <h4 class="with-actions">{{ trans('plugins/webrobotdashboard::dashboard.security_title') }}</h4>
               </div>
             </div>
 
@@ -28,14 +28,14 @@
                   @method('PUT')
                   @csrf
                   <div class="form-group mb-3">
-                    <label for="password">{{ trans('plugins/webrobot-dashboard::dashboard.password_new') }}</label>
+                    <label for="password">{{ trans('plugins/webrobotdashboard::dashboard.password_new') }}</label>
                     <input type="password" class="form-control" name="password" id="password">
                   </div>
                   <div class="form-group mb-3">
-                    <label for="password_confirmation">{{ trans('plugins/webrobot-dashboard::dashboard.password_new_confirmation') }}</label>
+                    <label for="password_confirmation">{{ trans('plugins/webrobotdashboard::dashboard.password_new_confirmation') }}</label>
                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                   </div>
-                  <button type="submit" class="btn btn-primary fw6">{{ trans('plugins/webrobot-dashboard::dashboard.password_update_btn') }}</button>
+                  <button type="submit" class="btn btn-primary fw6">{{ trans('plugins/webrobotdashboard::dashboard.password_update_btn') }}</button>
                 </form>
               </div>
             </div>

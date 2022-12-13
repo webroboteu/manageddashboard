@@ -12,7 +12,7 @@ class CustomImageField extends FormField
      */
     protected function getTemplate()
     {
-        return 'plugins/webrobot-dashboard::forms.fields.custom-image';
+        return 'plugins/webrobotdashboard::forms.fields.custom-image';
     }
 
     /**

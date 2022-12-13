@@ -20,9 +20,13 @@ class Task extends BaseModel
         'date',
         'quantity',
         'dataset',
-        'project_id'
+        'project_id',
+        'sites'
     ];
   
+    protected $casts = [
+        'sites' => 'array'
+    ];
      /**
     * @return BelongsTo
     * @deprecated
@@ -32,11 +36,4 @@ class Task extends BaseModel
         return $this->belongsTo(Project::class)->withDefault();
     }
 
-    /**
-    * @return BelongsToMany
-    */
-    public function sites(): BelongsToMany
-    {
-        return $this->belongsToMany(WebSite::class, 'task_sites');
-    }
 }

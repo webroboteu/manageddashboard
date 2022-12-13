@@ -18,8 +18,8 @@
   {!! Html::style('/vendor/core/core/base/css/themes/default.css') !!}
 
   <!-- Styles -->
-  <link href="{{ asset('vendor/core/plugins/webrobot-dashboard/css/app.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/core/plugins/webrobot-dashboard/css/tabs.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/core/plugins/webrobotdashboard/css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/core/plugins/webrobotdashboard/css/tabs.css') }}" rel="stylesheet">
 
     @if ($isRTL = BaseHelper::siteLanguageDirection() == 'rtl')
         <link rel="stylesheet" href="{{ asset('vendor/core/core/base/css/rtl.css') }}">
@@ -29,7 +29,7 @@
   <script type="text/javascript">
       'use strict';
 
-      window.trans = {{ Js::from(trans('plugins/webrobot-dashboard::dashboard')) }};
+      window.trans = {{ Js::from(trans('plugins/webrobotdashboard::dashboard')) }};
       var BotbleVariables = BotbleVariables || {};
       BotbleVariables.languages = {
         tables: {{ Js::from(trans('core/base::tables')) }},
@@ -52,7 +52,7 @@
 <body @if ($isRTL) dir="rtl" @endif>
   @include('core/base::layouts.partials.svg-icon')
   <div id="app">
-    @include('plugins/webrobot-dashboard::components.header')
+    @include('plugins/webrobotdashboard::components.header')
     <main class="pv3 pv4-ns">
       @yield('content')
     </main>
@@ -102,9 +102,9 @@
   @endif
 
   <!-- Scripts -->
-  <script src="{{ asset('vendor/core/plugins/webrobot-dashboard/js/app.js') }}"></script>
+  <script src="{{ asset('vendor/core/plugins/webrobotdashboard/js/app.js') }}"></script>
 
-  <script src="{{ asset('vendor/core/plugins/webrobot-dashboard/js/appreact.js') }}" ></script>
+  <script src="{{ asset('vendor/core/plugins/webrobotdashboard/js/appreact.js') }}" ></script>
 
   {!! Assets::renderFooter() !!}
   @stack('scripts')

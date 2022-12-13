@@ -14,7 +14,7 @@ class CustomEditorField extends FormField
      */
     protected function getTemplate(): string
     {
-        return 'plugins/webrobot-dashboard::forms.fields.custom-editor';
+        return 'plugins/webrobotdashboard::forms.fields.custom-editor';
     }
 
     /**

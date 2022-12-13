@@ -36,7 +36,7 @@ class TaskController extends BaseController
      */
     public function index(TaskTable $dataTable)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard.menu_name'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard.menu_name'));
 
         return $dataTable->renderTable();
     }
@@ -47,7 +47,7 @@ class TaskController extends BaseController
      */
     public function create(FormBuilder $formBuilder)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::task.create'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::task.create'));
         return $formBuilder
             ->create(TaskForm::class)
             ->renderForm();
@@ -63,7 +63,7 @@ class TaskController extends BaseController
         $task = $this->taskRepository->getModel();
         $task->fill($request->input());
         $task = $this->taskRepository->createOrUpdate($task);
-        event(new CreatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
+       //event(new CreatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
         return $response
             ->setPreviousUrl(route('task.index'))
             ->setNextUrl(route('task.edit', $task->id))
@@ -80,9 +80,9 @@ class TaskController extends BaseController
     {
         $task = $this->taskRepository->findOrFail($id);
 
-        event(new BeforeTaskEvent($request, $task));
+        //event(new BeforeTaskEvent($request, $task));
 
-        page_title()->setTitle(trans('plugins/webrobot-dashboard.task.edit'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard.task.edit'));
 
         return $formBuilder
             ->create(TaskForm::class, ['model' => $task])
@@ -100,7 +100,7 @@ class TaskController extends BaseController
         $task = $this->taskRepository->findOrFail($id);
         $task->fill($request);
         $task = $this->taskRepository->createOrUpdate($task);
-        event(new UpdatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
+        //event(new UpdatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
         return $response
             ->setPreviousUrl(route('task.index'))
             ->setMessage(trans('core/base::notices.update_success_message'));
@@ -117,7 +117,7 @@ class TaskController extends BaseController
         try {
             $task = $this->taskRepository->findOrFail($id);
             $this->taskRepository->delete($task);
-            event(new DeletedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
+            //event(new DeletedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
             return $response->setMessage(trans('core/base::notices.delete_success_message'));
         } catch (Exception $exception) {
             return $response

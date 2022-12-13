@@ -3,4 +3,5 @@
 require('bootstrap');
 
 // React Components
-require('./components/SurebetGrid');
+require('./components/ProjectGrid');
+require('./components/TaskGrid');

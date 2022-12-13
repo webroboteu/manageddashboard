@@ -90,6 +90,16 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
                     'uses' => 'PublicController@getDashboard',
                 ]);
 
+                Route::get('dashboard/projects', [
+                    'as' => 'dashboard-projects',
+                    'uses' => 'PublicController@getDashboardProjects',
+                ]);
+
+                Route::get('dashboard/tasks?projectId={projectId}', [
+                    'as' => 'dashboard-tasks',
+                    'uses' => 'PublicController@getDashboardTasks',
+                ]);
+
                 Route::get('settings', [
                     'as' => 'settings',
                     'uses' => 'PublicController@getSettings',

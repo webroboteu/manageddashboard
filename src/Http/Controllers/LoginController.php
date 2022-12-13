@@ -45,7 +45,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        SeoHelper::setTitle(trans('plugins/webrobot-dashboard::member.login'));
+        SeoHelper::setTitle(trans('plugins/webrobotdashboard::member.login'));
 
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
@@ -57,7 +57,7 @@ class LoginController extends Controller
             return Theme::scope('member.auth.login')->render();
         }
 
-        return view('plugins/webrobot-dashboard::auth.login');
+        return view('plugins/webrobotdashboard::auth.login');
     }
 
     /**
@@ -105,11 +105,11 @@ class LoginController extends Controller
 
             if (setting(
                 'verify_account_email',
-                config('plugins.webrobot-dashboard.general.verify_email')
+                config('plugins.webrobotdashboard.general.verify_email')
             ) && empty($member->confirmed_at)) {
                 throw ValidationException::withMessages([
                     'confirmation' => [
-                        trans('plugins/webrobot-dashboard::member.not_confirmed', [
+                        trans('plugins/webrobotdashboard::member.not_confirmed', [
                             'resend_link' => route('public.member.resend_confirmation', ['email' => $member->email]),
                         ]),
                     ],

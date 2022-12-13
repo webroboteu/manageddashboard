@@ -78,7 +78,7 @@ class RegisterController extends Controller
             return Theme::scope('member.auth.register')->render();
         }
 
-        return view('plugins/webrobot-dashboard::auth.register');
+        return view('plugins/webrobotdashboard::auth.register');
     }
 
     /**
@@ -105,7 +105,7 @@ class RegisterController extends Controller
 
         return $response
             ->setNextUrl(route('public.member.dashboard'))
-            ->setMessage(trans('plugins/webrobot-dashboard::member.confirmation_successful'));
+            ->setMessage(trans('plugins/webrobotdashboard::member.confirmation_successful'));
     }
 
     /**
@@ -138,7 +138,7 @@ class RegisterController extends Controller
         $this->sendConfirmationToUser($member);
 
         return $response
-            ->setMessage(trans('plugins/webrobot-dashboard::member.confirmation_resent'));
+            ->setMessage(trans('plugins/webrobotdashboard::member.confirmation_resent'));
     }
 
     /**
@@ -149,7 +149,7 @@ class RegisterController extends Controller
     protected function sendConfirmationToUser($member)
     {
         // Notify the user
-        $notificationConfig = config('plugins.webrobot-dashboard.general.notification');
+        $notificationConfig = config('plugins.webrobotdashboard.general.notification');
         if ($notificationConfig) {
             $notification = app($notificationConfig);
             $member->notify($notification);
@@ -169,12 +169,12 @@ class RegisterController extends Controller
 
         event(new Registered($member = $this->create($request->input())));
 
-        if (setting('verify_account_email', config('plugins.webrobot-dashboard.general.verify_email'))) {
+        if (setting('verify_account_email', config('plugins.webrobotdashboard.general.verify_email'))) {
             $this->sendConfirmationToUser($member);
 
             return $this->registered($request, $member)
                 ?: $response->setNextUrl($this->redirectPath())
-                    ->setMessage(trans('plugins/webrobot-dashboard::member.confirmation_info'));
+                    ->setMessage(trans('plugins/webrobotdashboard::member.confirmation_info'));
         }
 
         $member->confirmed_at = Carbon::now();
@@ -234,6 +234,6 @@ class RegisterController extends Controller
      */
     public function getVerify()
     {
-        return view('plugins/webrobot-dashboard::auth.verify');
+        return view('plugins/webrobotdashboard::auth.verify');
     }
 }

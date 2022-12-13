@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->string('description', 120);
             $table->string('frequency', 120);
             $table->string('status', 120);
+            $table->integer('member_id');
             $table->timestamps();
         });
 
@@ -25,6 +26,8 @@ return new class () extends Migration {
             $table->string('date', 120);
             $table->string('quantity', 120);
             $table->string('dataset', 120);
+            $table->integer('project_id');
+            $table->json('sites');
             $table->timestamps();
         });
       

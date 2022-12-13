@@ -2,7 +2,7 @@
 namespace Botble\webrobotdashboard\Repositories\Eloquent;
 use Botble\webrobotdashboard\Repositories\Interfaces\ProjectInterface;
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\webrobotdashboard\Model\Bookmakers;
+use Botble\webrobotdashboard\Model\Project;
 
 class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
 {

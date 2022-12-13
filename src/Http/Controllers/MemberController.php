@@ -44,7 +44,7 @@ class MemberController extends BaseController
      */
     public function index(MemberTable $dataTable)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::member.menu_name'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::member.menu_name'));
 
         return $dataTable->renderTable();
     }
@@ -55,7 +55,7 @@ class MemberController extends BaseController
      */
     public function create(FormBuilder $formBuilder)
     {
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::member.create'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::member.create'));
 
         return $formBuilder
             ->create(MemberForm::class)
@@ -105,7 +105,7 @@ class MemberController extends BaseController
 
         event(new BeforeEditContentEvent($request, $member));
 
-        page_title()->setTitle(trans('plugins/webrobot-dashboard::member.edit'));
+        page_title()->setTitle(trans('plugins/webrobotdashboard::member.edit'));
 
         $member->password = null;
 

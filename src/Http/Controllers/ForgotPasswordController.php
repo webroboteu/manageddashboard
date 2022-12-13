@@ -31,13 +31,13 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        SeoHelper::setTitle(trans('plugins/webrobot-dashboard::member.forgot_password'));
+        SeoHelper::setTitle(trans('plugins/webrobotdashboard::member.forgot_password'));
 
         if (view()->exists(Theme::getThemeNamespace() . '::views.member.auth.passwords.email')) {
-            return Theme::scope('webrobot-dashboard.auth.passwords.email')->render();
+            return Theme::scope('webrobotdashboard.auth.passwords.email')->render();
         }
 
-        return view('plugins/webrobot-dashboard::auth.passwords.email');
+        return view('plugins/webrobotdashboard::auth.passwords.email');
     }
 
     /**

@@ -14,10 +14,16 @@ use Botble\webrobotdashboard\Models\Project;
 use Botble\webrobotdashboard\Models\MemberActivityLog;
 use Botble\webrobotdashboard\Repositories\Caches\MemberActivityLogCacheDecorator;
 use Botble\webrobotdashboard\Repositories\Caches\MemberCacheDecorator;
+use Botble\webrobotdashboard\Repositories\Caches\ProjectCacheDecorator;
+use Botble\webrobotdashboard\Repositories\Caches\TaskCacheDecorator;
 use Botble\webrobotdashboard\Repositories\Eloquent\MemberActivityLogRepository;
 use Botble\webrobotdashboard\Repositories\Eloquent\MemberRepository;
+use Botble\webrobotdashboard\Repositories\Eloquent\ProjectRepository;
+use Botble\webrobotdashboard\Repositories\Eloquent\TaskRepository;
 use Botble\webrobotdashboard\Repositories\Interfaces\MemberActivityLogInterface;
 use Botble\webrobotdashboard\Repositories\Interfaces\MemberInterface;
+use Botble\webrobotdashboard\Repositories\Interfaces\ProjectInterface;
+use Botble\webrobotdashboard\Repositories\Interfaces\TaskInterface;
 use EmailHandler;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Events\RouteMatched;
@@ -28,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Language;
 use SocialService;
-
+use Theme;
 class MemberServiceProvider extends ServiceProvider
 {
     use LoadAndPublishDataTrait;
@@ -59,13 +65,13 @@ class MemberServiceProvider extends ServiceProvider
         $router->aliasMiddleware('member', RedirectIfNotMember::class);
         $router->aliasMiddleware('member.guest', RedirectIfMember::class);
 
-    
+        
         $this->app->bind(ProjectInterface::class, function () {
-            return new ProjectCacheDecorator(new ProjectRepository(new Project));
+            return new ProjectCacheDecorator(new ProjectRepository(new Project()));
         });
 
         $this->app->bind(TaskInterface::class, function () {
-            return new TaskCacheDecorator(new TaskRepository(new Task));
+            return new TaskCacheDecorator(new TaskRepository(new Task()));
         });
 
 
@@ -92,7 +98,7 @@ class MemberServiceProvider extends ServiceProvider
                 'id' => 'cms-core-member',
                 'priority' => 22,
                 'parent_id' => null,
-                'name' => 'plugins/webrobot-dashboard::member.menu_name',
+                'name' => 'plugins/webrobotdashboard::member.menu_name',
                 'icon' => 'fa fa-users',
                 'url' => route('member.index'),
                 'permissions' => ['member.index'],
@@ -104,7 +110,7 @@ class MemberServiceProvider extends ServiceProvider
                 'id' => 'cms-core-member-projects',
                 'priority' => 22,
                 'parent_id' => null,
-                'name' => 'plugins/webrobot-dashboard::project.menu_name',
+                'name' => 'plugins/webrobotdashboard::project.menu_name',
                 'icon' => 'fa fa-projects',
                 'url' => route('project.index'),
                 'permissions' => ['project.index'],
@@ -116,7 +122,7 @@ class MemberServiceProvider extends ServiceProvider
                 'id' => 'cms-core-member-tasks',
                 'priority' => 22,
                 'parent_id' => null,
-                'name' => 'plugins/webrobot-dashboard::task.menu_name',
+                'name' => 'plugins/webrobotdashboard::task.menu_name',
                 'icon' => 'fa fa-tasks',
                 'url' => route('task.index'),
                 'permissions' => ['task.index'],
@@ -135,6 +141,7 @@ class MemberServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             
+          
             EmailHandler::addTemplateSettings(MEMBER_MODULE_SCREEN_NAME, config('plugins.weborobot-dashboard.email', []));
 
             if (defined('SOCIAL_LOGIN_MODULE_SCREEN_NAME') && !$this->app->runningInConsole() && Route::has('public.member.login')) {
@@ -150,7 +157,7 @@ class MemberServiceProvider extends ServiceProvider
                     ->usePath(false)
                     ->add(
                         'tabs-css',
-                        asset('vendor/core/plugins/weborobot-dashboard/css/tabs.css'),
+                        asset('vendor/core/plugins/weborobotdashboard/css/tabs.css'),
                         [],
                         [],
                         '1.0.0'
@@ -160,7 +167,7 @@ class MemberServiceProvider extends ServiceProvider
                     ->usePath(false)
                     ->add(
                         'appreact',
-                        asset('vendor/core/plugins/weborobot-dashboard/js/appreact.js'),
+                        asset('vendor/core/plugins/weborobotdashboard/js/appreact.js'),
                         [],
                         [],
                         '1.0.0'
@@ -233,6 +240,6 @@ class MemberServiceProvider extends ServiceProvider
      */
     public function addSettings(?string $data = null): string
     {
-        return $data . view('plugins/webrobot-dashboard::settings')->render();
+        return $data . view('plugins/webrobotdashboard::settings')->render();
     }
 }

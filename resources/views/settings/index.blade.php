@@ -1,15 +1,15 @@
-@extends('plugins/webrobot-dashboard::layouts.skeleton')
+@extends('plugins/webrobotdashboard::layouts.skeleton')
 @section('content')
   <div class="settings crop-avatar">
     <div class="container">
       <div class="row">
-        @include('plugins/webrobot-dashboard::settings.sidebar')
+        @include('plugins/webrobotdashboard::settings.sidebar')
         <div class="col-12 col-md-9">
             <div class="main-dashboard-form">
                 <!-- Setting Title -->
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="with-actions">{{ trans('plugins/webrobot-dashboard::dashboard.account_field_title') }}</h4>
+                        <h4 class="with-actions">{{ trans('plugins/webrobotdashboard::dashboard.account_field_title') }}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -17,7 +17,7 @@
                         <form id="avatar-upload-form" enctype="multipart/form-data" action="javascript:void(0)" onsubmit="return false">
                             <div class="avatar-upload-container">
                                 <div class="form-group mb-3">
-                                    <label for="account-avatar">{{ trans('plugins/webrobot-dashboard::dashboard.profile-picture') }}</label>
+                                    <label for="account-avatar">{{ trans('plugins/webrobotdashboard::dashboard.profile-picture') }}</label>
                                     <div id="account-avatar">
                                         <div class="profile-image">
                                             <div class="avatar-view mt-card-avatar">
@@ -46,32 +46,32 @@
                         @csrf
                         <!-- Name -->
                             <div class="form-group mb-3">
-                                <label for="first_name">{{ trans('plugins/webrobot-dashboard::dashboard.first_name') }}</label>
+                                <label for="first_name">{{ trans('plugins/webrobotdashboard::dashboard.first_name') }}</label>
                                 <input type="text" class="form-control" name="first_name" id="first_name" required value="{{ old('first_name') ?? $user->first_name }}">
                             </div>
                             <!-- Name -->
                             <div class="form-group mb-3">
-                                <label for="last_name">{{ trans('plugins/webrobot-dashboard::dashboard.last_name') }}</label>
+                                <label for="last_name">{{ trans('plugins/webrobotdashboard::dashboard.last_name') }}</label>
                                 <input type="text" class="form-control" name="last_name" id="last_name" required value="{{ old('last_name') ?? $user->last_name }}">
                             </div>
                             <!-- Phone -->
                             <div class="form-group mb-3">
-                                <label for="phone">{{ trans('plugins/webrobot-dashboard::dashboard.phone') }}</label>
+                                <label for="phone">{{ trans('plugins/webrobotdashboard::dashboard.phone') }}</label>
                                 <input type="text" class="form-control" name="phone" id="phone" required value="{{ old('phone') ?? $user->phone }}">
                             </div>
                             <!--Short description-->
                             <div class="form-group mb-3">
-                                <label for="description">{{ trans('plugins/webrobot-dashboard::dashboard.description') }}</label>
+                                <label for="description">{{ trans('plugins/webrobotdashboard::dashboard.description') }}</label>
                                 <textarea class="form-control" name="description" id="description" rows="3" maxlength="300" placeholder="{{ trans('plugins/member::dashboard.description_placeholder') }}">{{ old('description') ?? $user->description }}</textarea>
                             </div>
                             <!-- Email -->
                             <div class="form-group mb-3">
-                                <label for="email">{{ trans('plugins/webrobot-dashboard::dashboard.email') }}</label>
+                                <label for="email">{{ trans('plugins/webrobotdashboard::dashboard.email') }}</label>
                                 <input type="email" class="form-control" name="email" id="email" disabled="disabled" placeholder="{{ trans('plugins/member::dashboard.email_placeholder') }}" required value="{{ old('email') ?? $user->email }}">
                                 @if ($user->confirmed_at)
-                                    <small class="f7 green">{{ trans('plugins/webrobot-dashboard::dashboard.verified') }}<i class="ml1 far fa-check-circle"></i></small>
+                                    <small class="f7 green">{{ trans('plugins/webrobotdashboard::dashboard.verified') }}<i class="ml1 far fa-check-circle"></i></small>
                                 @else
-                                    <small class="f7">{{ trans('plugins/webrobot-dashboard::dashboard.verify_require_desc') }}<a href="{{ route('public.member.resend_confirmation', ['email' => $user->email]) }}" class="ml1">{{ trans('plugins/webrobot-dashboard::dashboard.resend') }}</a></small>
+                                    <small class="f7">{{ trans('plugins/webrobotdashboard::dashboard.verify_require_desc') }}<a href="{{ route('public.member.resend_confirmation', ['email' => $user->email]) }}" class="ml1">{{ trans('plugins/webrobotdashboard::dashboard.resend') }}</a></small>
                                 @endif
                             </div>
                             <!-- Birthday -->
@@ -88,14 +88,14 @@
                             </div>
                             <!-- Gender -->
                             <div class="form-group mb-3">
-                                <label for="gender">{{ trans('plugins/webrobot-dashboard::dashboard.gender') }}</label>
+                                <label for="gender">{{ trans('plugins/webrobotdashboard::dashboard.gender') }}</label>
                                 <select class="form-control" name="gender" id="gender">
-                                    <option value="male" {{ $user->gender == 'male' ? 'selected' : '' }}>{{ trans('plugins/webrobot-dashboard::dashboard.gender_male') }}</option>
-                                    <option value="female" {{ $user->gender == 'female' ? 'selected' : '' }}>{{ trans('plugins/webrobot-dashboard::dashboard.gender_female') }}</option>
-                                    <option value="other" {{ $user->gender == 'other' ? 'selected' : '' }}>{{ trans('plugins/webrobot-dashboard::dashboard.gender_other') }}</option>
+                                    <option value="male" {{ $user->gender == 'male' ? 'selected' : '' }}>{{ trans('plugins/webrobotdashboard::dashboard.gender_male') }}</option>
+                                    <option value="female" {{ $user->gender == 'female' ? 'selected' : '' }}>{{ trans('plugins/webrobotdashboard::dashboard.gender_female') }}</option>
+                                    <option value="other" {{ $user->gender == 'other' ? 'selected' : '' }}>{{ trans('plugins/webrobotdashboard::dashboard.gender_other') }}</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary fw6">{{ trans('plugins/webrobot-dashboard::dashboard.save') }}</button>
+                            <button type="submit" class="btn btn-primary fw6">{{ trans('plugins/webrobotdashboard::dashboard.save') }}</button>
                         </form>
                     </div>
             </div>
@@ -103,7 +103,7 @@
         </div>
       </div>
     </div>
-    @include('plugins/webrobot-dashboard::modals.avatar')
+    @include('plugins/webrobotdashboard::modals.avatar')
   </div>
 @endsection
 @push('scripts')
@@ -130,7 +130,7 @@
         selectedYear = parseInt(oldBirthday.substr(0, 4));
       }
 
-      let dayOption = `<option value="">{{ trans('plugins/webrobot-dashboard::dashboard.day_lc') }}</option>`;
+      let dayOption = `<option value="">{{ trans('plugins/webrobotdashboard::dashboard.day_lc') }}</option>`;
       for (let i = 1; i <= numberDaysInMonth[0]; i++) {
         if (i === selectedDay) {
           dayOption += `<option value="${i}" selected>${i}</option>`;
@@ -140,7 +140,7 @@
       }
       $('#day').append(dayOption);
 
-      let monthOption = `<option value="">{{ trans('plugins/webrobot-dashboard::dashboard.month_lc') }}</option>`;
+      let monthOption = `<option value="">{{ trans('plugins/webrobotdashboard::dashboard.month_lc') }}</option>`;
       for (let j = 1; j <= 12; j++) {
         if (j === selectedMonth) {
           monthOption += `<option value="${j}" selected>${j}</option>`;
@@ -151,7 +151,7 @@
       $('#month').append(monthOption);
 
       let d = new Date();
-      let yearOption = `<option value="">{{ trans('plugins/webrobot-dashboard::dashboard.year_lc') }}</option>`;
+      let yearOption = `<option value="">{{ trans('plugins/webrobotdashboard::dashboard.year_lc') }}</option>`;
       for (let k = d.getFullYear(); k >= 1918; k--) {
         if (k === selectedYear) {
           yearOption += `<option value="${k}" selected>${k}</option>`;
@@ -193,7 +193,7 @@
 
         $(day).empty();
 
-        let option = `<option value="">{{ trans('plugins/webrobot-dashboard::dashboard.day_lc') }}</option>`;
+        let option = `<option value="">{{ trans('plugins/webrobotdashboard::dashboard.day_lc') }}</option>`;
         for (let i = 1; i <= numberDaysInMonth[1]; i++) {
           if (i === daySelectedValue) {
             option += `<option value="${i}" selected>${i}</option>`;
@@ -221,7 +221,7 @@
 
       $(day).empty();
 
-      let option = `<option value="">{{ trans('plugins/webrobot-dashboard::dashboard.day_lc') }}</option>`;
+      let option = `<option value="">{{ trans('plugins/webrobotdashboard::dashboard.day_lc') }}</option>`;
 
       for (let i = 1; i <= numberDaysInMonth[month]; i++) {
         if (i === daySelectedValue) {
