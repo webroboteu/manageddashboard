@@ -11,4 +11,32 @@ class ProjectCacheDecorator extends CacheAbstractDecorator implements ProjectInt
     {
         return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
     }
+    /**
+    * {@inheritDoc}
+    */
+   public function getProjectById($projectId)
+   {
+    return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
+   }
+   /**
+    * {@inheritDoc}
+    */
+   public function deleteProject($projectId)
+   {
+    return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
+   }
+    /**
+    * {@inheritDoc}
+    */
+   public function createProject(array $Details)
+   {
+    return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
+   }
+    /**
+    * {@inheritDoc}
+    */
+   public function updateProject($projectId, array $newDetails)
+   {
+    return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
+   }
 }

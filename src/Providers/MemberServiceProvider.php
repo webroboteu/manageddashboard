@@ -75,6 +75,11 @@ class MemberServiceProvider extends ServiceProvider
         });
 
 
+        $this->app->bind(MemberInterface::class, function () {
+            return new MemberCacheDecorator(new MemberRepository(new Member()));
+        });
+
+
         $this->app->bind(MemberActivityLogInterface::class, function () {
             return new MemberActivityLogCacheDecorator(new MemberActivityLogRepository(new MemberActivityLog()));
         });

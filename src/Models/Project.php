@@ -13,7 +13,7 @@ class Project extends BaseModel
     /**
      * @var string
      */
-    protected $table = 'member_project';
+    protected $table = 'member_projects';
 
     /**
      * The attributes that are mass assignable.

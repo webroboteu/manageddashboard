@@ -1,8 +1,8 @@
 <?php
-
 namespace Botble\webrobotdashboard\Tables;
 use BaseHelper;
-use Botble\Member\Repositories\Interfaces\TaskInterface;
+use Botble\webrobotdashboard\Repositories\Interfaces\TaskInterface;
+use Botble\webrobotdashboard\Repositories\Interfaces\ProjectInterface;
 use Botble\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
@@ -25,10 +25,10 @@ class TaskTable extends TableAbstract
      * MemberTable constructor.
      * @param DataTables $table
      * @param UrlGenerator $urlGenerator
-     * @param TaskInterface $taskRepository
      * @param ProjectInterface $projectRepository
+     * @param TaskInterface $taskRepository
      */
-    public function __construct(DataTables $table, UrlGenerator $urlGenerator,ProjectRepositiry $projectRepository, TaskInterface $taskRepository)
+    public function __construct(DataTables $table, UrlGenerator $urlGenerator,ProjectInterface $projectRepository, TaskInterface $taskRepository)
     {
         parent::__construct($table, $urlGenerator);
 

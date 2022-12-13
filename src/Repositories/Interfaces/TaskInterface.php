@@ -33,5 +33,5 @@ interface TaskInterface extends RepositoryInterface
      * @param array [$name, $url]
      * @return 
      */
-    public function updateProject($taskId, array $newDetails);
+    public function updateTask($taskId, array $newDetails);
 }

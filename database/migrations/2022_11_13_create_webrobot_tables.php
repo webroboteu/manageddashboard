@@ -11,7 +11,7 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('member_project', function (Blueprint $table) {
+        Schema::create('member_projects', function (Blueprint $table) {
             $table->id();
             $table->string('name', 120);
             $table->string('description', 120);
@@ -21,7 +21,7 @@ return new class () extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('member_task', function (Blueprint $table) {
+        Schema::create('member_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('date', 120);
             $table->string('quantity', 120);
@@ -40,8 +40,8 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('member_project');
-        Schema::dropIfExists('member_task');
+        Schema::dropIfExists('member_projects');
+        Schema::dropIfExists('member_tasks');
         
     }
 };

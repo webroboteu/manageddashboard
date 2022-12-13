@@ -1,5 +1,4 @@
 <?php
-
 namespace Botble\webrobotdashboard\Tables;
 use BaseHelper;
 use Botble\webrobotdashboard\Repositories\Interfaces\ProjectInterface;
@@ -9,7 +8,8 @@ use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
-
+use Botble\webrobotdashboard\enums\FrequencyEnum;
+use Botble\webrobotdashboard\enums\StatusEnum;
 class ProjectTable extends TableAbstract
 {
     /**
@@ -47,6 +47,7 @@ class ProjectTable extends TableAbstract
      */
     public function ajax()
     {
+    
         $data = $this->table
             ->eloquent($this->query())
             ->editColumn('member_id', function ($item) {
@@ -61,6 +62,7 @@ class ProjectTable extends TableAbstract
             ->editColumn('description', function ($item) {
                 return BaseHelper::clean($item->description);
             })
+            /*
             ->editColumn('status', function ($item) {
                 if ($this->request()->input('action') === 'excel') {
                     return $item->status->getValue();
@@ -72,7 +74,7 @@ class ProjectTable extends TableAbstract
                     return $item->frequency->getValue();
                 }
                 return BaseHelper::clean($item->frequency->toHtml());
-            })
+            })*/
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
             })
@@ -125,6 +127,7 @@ class ProjectTable extends TableAbstract
                 'title' => trans('plugins/webrobotdashboard::project.description'),
                 'class' => 'text-start',
             ],
+            /*
             'status' => [
                 'title' => trans('plugins/webrobotdashboard::project.status'),
                 'width' => '100px',
@@ -134,7 +137,7 @@ class ProjectTable extends TableAbstract
                 'title' => trans('plugins/webrobotdashboard::project.frequency'),
                 'width' => '100px',
                 'class' => 'text-center',
-            ],
+            ],*/
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),
                 'width' => '100px',
@@ -174,6 +177,7 @@ class ProjectTable extends TableAbstract
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
+            /*
             'status' => [
                 'title' => trans('plugins/webrobotdashboard::project.status'),
                 'type' => 'customSelect',
@@ -185,7 +189,7 @@ class ProjectTable extends TableAbstract
                 'type' => 'customSelect',
                 'choices' => FrequencyEnum::labels(),
                 'validate' => 'required|in:' . implode(',', FrequencyEnum::values()),
-            ],
+            ],*/
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),
                 'type' => 'date',

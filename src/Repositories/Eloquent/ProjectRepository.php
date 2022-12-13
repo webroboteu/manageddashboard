@@ -16,7 +16,7 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
     /**
      * {@inheritDoc}
      */
-    public function getProjetById($projectId)
+    public function getProjectById($projectId)
     {
         return Project::findOrFail($projectId);
     }

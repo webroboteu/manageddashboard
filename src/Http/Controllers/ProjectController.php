@@ -117,7 +117,7 @@ class ProjectController extends BaseController
         try {
             $project = $this->projectRepository->findOrFail($id);
             $this->projectRepository->delete($project);
-            event(new DeletedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
+            //event(new DeletedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
             return $response->setMessage(trans('core/base::notices.delete_success_message'));
         } catch (Exception $exception) {
             return $response
