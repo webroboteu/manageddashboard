@@ -3,6 +3,7 @@ namespace Botble\webrobotdashboard\Http\Requests;
 use Botble\Support\Http\Requests\Request;
 use Botble\webrobotdashboard\Enums\FrequencyEnum;
 use Botble\webrobotdashboard\Enums\StatusEnum;
+use Illuminate\Validation\Rule;
 class ProjectCreateRequest extends Request
 {
     /**

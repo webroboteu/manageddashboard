@@ -38,18 +38,16 @@ class TaskForm extends FormAbstract
                 'label' => trans('plugins/webrobotdashboard::task.date'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
-                    'placeholder' => trans('plugins/webrobotdashboard::forms.task_placeholder'),
-                    'data-counter' => 120,
+                    'class' => 'form-control datepicker',
+                    'data-date-format' => 'yyyy/mm/dd',
                 ],
-            ])
-          
-            ->add('quantity', 'text', [
+                'default_value' => Carbon::now()->addDay()->format('Y/m/d'),
+            ])    
+            ->add('quantity', 'number', [
                 'label' => trans('plugins/webrobotdashboard::task.quantity'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
-                    'rows' => 4,
                     'placeholder' => trans('plugins/webrobotdashboard::forms.quantity_placeholder'),
-                    'data-counter' => 400,
                 ],
             ])
             ->add('dataset', 'text', [

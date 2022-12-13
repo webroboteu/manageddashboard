@@ -28,7 +28,7 @@ class ProjectForm extends FormAbstract
             ->setValidatorClass(ProjectCreateRequest::class)
             ->withCustomFields()
             ->add('member_id', 'customSelect', [
-                'label' => trans('plugins/webrobotdashboard::task.project_id'),
+                'label' => trans('plugins/webrobotdashboard::member.member_id'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
                     'class' => 'select-search-full',

@@ -111,29 +111,36 @@ class MemberServiceProvider extends ServiceProvider
         });
 
         Event::listen(RouteMatched::class, function () {
+
+            dashboard_menu()->registerItem([
+                'id' => 'cms-core-member-managed-service',
+                'priority' => 8,
+                'parent_id' => null,
+                'name' => 'plugins/webrobotdashboard::managed.menu_name',
+                'icon' => 'fa fa-managed',
+                'permissions' => ['project.index'],
+            ]);
+
             dashboard_menu()->registerItem([
                 'id' => 'cms-core-member-projects',
-                'priority' => 22,
-                'parent_id' => null,
+                'priority' => 0,
+                'parent_id' => "cms-core-member-managed-service",
                 'name' => 'plugins/webrobotdashboard::project.menu_name',
                 'icon' => 'fa fa-projects',
                 'url' => route('project.index'),
                 'permissions' => ['project.index'],
             ]);
-        });
 
-        Event::listen(RouteMatched::class, function () {
             dashboard_menu()->registerItem([
                 'id' => 'cms-core-member-tasks',
-                'priority' => 22,
-                'parent_id' => null,
+                'priority' => 0,
+                'parent_id' => "cms-core-member-managed-service",
                 'name' => 'plugins/webrobotdashboard::task.menu_name',
                 'icon' => 'fa fa-tasks',
                 'url' => route('task.index'),
                 'permissions' => ['task.index'],
             ]);
         });
-
     
         if (class_exists('ApiHelper') && ApiHelper::enabled()) {
             ApiHelper::setConfig([

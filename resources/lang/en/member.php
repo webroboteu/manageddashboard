@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'member_id' => 'Member Id',
     'create' => 'New member',
     'edit' => 'Edit member',
     'menu_name' => 'Members',

@@ -50,9 +50,10 @@ class ProjectTable extends TableAbstract
     
         $data = $this->table
             ->eloquent($this->query())
+            /*
             ->editColumn('member_id', function ($item) {
                 return $item->member && $item->member->name ? BaseHelper::clean($item->member->name) : '&mdash;';
-            })
+            })*/
             ->editColumn('name', function ($item) {
                 if (!Auth::user()->hasPermission('project.edit')) {
                     return BaseHelper::clean($item->name);
@@ -113,12 +114,6 @@ class ProjectTable extends TableAbstract
                 'title' => trans('core/base::tables.id'),
                 'width' => '20px',
             ],
-            'member_id' => [
-                'title' => trans('plugins/webrobotdashboard::member'),
-                'width' => '150px',
-                'class' => 'no-sort text-center',
-                'orderable' => false,
-            ],
             'name' => [
                 'title' => trans('core/base::tables.name'),
                 'class' => 'text-start',
@@ -127,7 +122,6 @@ class ProjectTable extends TableAbstract
                 'title' => trans('plugins/webrobotdashboard::project.description'),
                 'class' => 'text-start',
             ],
-            /*
             'status' => [
                 'title' => trans('plugins/webrobotdashboard::project.status'),
                 'width' => '100px',
@@ -137,7 +131,7 @@ class ProjectTable extends TableAbstract
                 'title' => trans('plugins/webrobotdashboard::project.frequency'),
                 'width' => '100px',
                 'class' => 'text-center',
-            ],*/
+            ],
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),
                 'width' => '100px',
@@ -177,7 +171,6 @@ class ProjectTable extends TableAbstract
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
-            /*
             'status' => [
                 'title' => trans('plugins/webrobotdashboard::project.status'),
                 'type' => 'customSelect',
@@ -189,7 +182,7 @@ class ProjectTable extends TableAbstract
                 'type' => 'customSelect',
                 'choices' => FrequencyEnum::labels(),
                 'validate' => 'required|in:' . implode(',', FrequencyEnum::values()),
-            ],*/
+            ],
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),
                 'type' => 'date',
