@@ -6,6 +6,7 @@ use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Base\Traits\HasDeleteManyItemsTrait;
 use Botble\webrobotdashboard\Forms\ProjectForm;
 use Botble\webrobotdashboard\Http\Requests\ProjectCreateRequest;
+use Botble\webrobotdashboard\Http\Requests\ProjectEditRequest;
 use Botble\webrobotdashboard\Repositories\Interfaces\ProjectInterface;
 use Botble\webrobotdashboard\Tables\ProjectTable;
 use Carbon\Carbon;
@@ -98,7 +99,7 @@ class ProjectController extends BaseController
     public function update($id, ProjectEditRequest $request, BaseHttpResponse $response)
     {
         $project = $this->projectRepository->findOrFail($id);
-        $project->fill($request);
+        $project->fill($request->except('password'));
         $project = $this->projectRepository->createOrUpdate($project);
         //event(new UpdatedProjectEvent(MEMBER_MODULE_SCREEN_NAME, $request, $project));
         return $response

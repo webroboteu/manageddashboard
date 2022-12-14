@@ -48,20 +48,20 @@ class TaskTable extends TableAbstract
     {
         $data = $this->table
             ->eloquent($this->query())
+            ->editColumn('checkbox', function ($item) {
+                return $this->getCheckbox($item->id);
+            })
+            ->editColumn('id', function ($item) {
+                return BaseHelper::clean($item->id);
+            })
             ->editColumn('project_id', function ($item) {
-                return $item->project && $item->project->name ? BaseHelper::clean($item->project->name) : '&mdash;';
+                return  BaseHelper::clean($item->project_id);
             })
             ->editColumn('date', function ($item) {
-                if (!Auth::user()->hasPermission('task.edit')) {
-                    return BaseHelper::clean($item->name);
-                }
-                return Html::link(route('task.edit', $item->id), BaseHelper::clean($item->date));
+                return BaseHelper::clean($item->date);
             })
             ->editColumn('quantity', function ($item) {
                 return BaseHelper::clean($item->quantity);
-            })
-            ->editColumn('dataset', function ($item) {
-                return BaseHelper::clean($item->dataset);
             })
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
@@ -83,8 +83,10 @@ class TaskTable extends TableAbstract
             'date',
             'quantity',
             'dataset',
+            'sites',
             'project_id'
-        ]);
+        ])
+        ;
         return $this->applyScopes($query);
     }
 
@@ -98,6 +100,10 @@ class TaskTable extends TableAbstract
                 'title' => trans('core/base::tables.id'),
                 'width' => '20px',
             ],
+            'project_id' => [
+                'title' => trans('plugins/webrobotdashboard::task.project_id'),
+                'width' => '20px',
+            ],
             'date' => [
                 'title' => trans('plugins/webrobotdashboard::task.date'),
                 'class' => 'text-start',
@@ -108,6 +114,10 @@ class TaskTable extends TableAbstract
             ],
             'dataset' => [
                 'title' => trans('plugins/webrobotdashboard::task.dataset'),
+                'class' => 'text-start',
+            ],
+            'sites' => [
+                'title' => trans('plugins/webrobotdashboard::task.sites'),
                 'class' => 'text-start',
             ],
             'created_at' => [
@@ -153,6 +163,10 @@ class TaskTable extends TableAbstract
                 'title' => trans('plugins/webrobotdashboard::task.dataset'),
                 'width' => '100px',
                 'class' => 'text-center',
+            ],
+            'sites' => [
+                'title' => trans('plugins/webrobotdashboard::task.sites'),
+                'class' => 'text-start',
             ],
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),

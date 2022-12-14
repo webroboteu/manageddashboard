@@ -24,16 +24,13 @@ class Task extends BaseModel
         'sites'
     ];
   
-    protected $casts = [
-        'sites' => 'array'
-    ];
      /**
     * @return BelongsTo
     * @deprecated
     */
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class)->withDefault();
+        return $this->belongsTo(Project::class,'project_id','id')->withDefault();
     }
 
 }

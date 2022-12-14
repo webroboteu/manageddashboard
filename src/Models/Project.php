@@ -47,10 +47,9 @@ class Project extends BaseModel
 
       /**
     * @return BelongsTo
-    * @deprecated
     */
     public function member(): BelongsTo
     {
-        return $this->belongsTo(Member::class)->withDefault();
+        return $this->belongsTo(Member::class,'member_id','id');
     }
 }

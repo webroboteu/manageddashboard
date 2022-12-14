@@ -21,7 +21,7 @@ class ProjectForm extends FormAbstract
         $allMembers = [];
         $allMembers = app(MemberInterface::class)
             ->getModel()
-            ->pluck('id')
+            ->pluck('email','id')
             ->all();
         $this
             ->setupModel(new Project())

@@ -20,7 +20,7 @@ class TaskForm extends FormAbstract
         $allProjects = [];
         $allProjects = app(ProjectInterface::class)
             ->getModel()
-            ->pluck('id')
+            ->pluck('name','id')
             ->all();
         $this
             ->setupModel(new Task())
@@ -59,6 +59,7 @@ class TaskForm extends FormAbstract
                     'data-counter' => 400,
                 ],
             ])
+           
             ;
     }
 }

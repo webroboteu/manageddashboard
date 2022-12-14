@@ -27,7 +27,7 @@ return new class () extends Migration {
             $table->string('quantity', 120);
             $table->string('dataset', 120);
             $table->integer('project_id');
-            $table->json('sites');
+            $table->string('sites',255);
             $table->timestamps();
         });
       

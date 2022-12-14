@@ -50,10 +50,15 @@ class ProjectTable extends TableAbstract
     
         $data = $this->table
             ->eloquent($this->query())
-            /*
+            ->editColumn('checkbox', function ($item) {
+                return $this->getCheckbox($item->id);
+            })
+            ->editColumn('id', function ($item) {
+                return BaseHelper::clean($item->id);
+            })
             ->editColumn('member_id', function ($item) {
-                return $item->member && $item->member->name ? BaseHelper::clean($item->member->name) : '&mdash;';
-            })*/
+                return BaseHelper::clean(json_encode($item));
+            })
             ->editColumn('name', function ($item) {
                 if (!Auth::user()->hasPermission('project.edit')) {
                     return BaseHelper::clean($item->name);
@@ -63,7 +68,6 @@ class ProjectTable extends TableAbstract
             ->editColumn('description', function ($item) {
                 return BaseHelper::clean($item->description);
             })
-            /*
             ->editColumn('status', function ($item) {
                 if ($this->request()->input('action') === 'excel') {
                     return $item->status->getValue();
@@ -75,7 +79,7 @@ class ProjectTable extends TableAbstract
                     return $item->frequency->getValue();
                 }
                 return BaseHelper::clean($item->frequency->toHtml());
-            })*/
+            })
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
             })
@@ -100,7 +104,6 @@ class ProjectTable extends TableAbstract
             'status',
             'created_at',
         ]);
-
         return $this->applyScopes($query);
     }
 
@@ -112,6 +115,10 @@ class ProjectTable extends TableAbstract
         return [
             'id' => [
                 'title' => trans('core/base::tables.id'),
+                'width' => '20px',
+            ],
+            'member_id' => [
+                'title' => trans('plugins/webrobotdashboard::project.member_id'),
                 'width' => '20px',
             ],
             'name' => [

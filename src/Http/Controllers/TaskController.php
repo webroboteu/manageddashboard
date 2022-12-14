@@ -6,6 +6,7 @@ use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Base\Traits\HasDeleteManyItemsTrait;
 use Botble\webrobotdashboard\Forms\TaskForm;
 use Botble\webrobotdashboard\Http\Requests\TaskCreateRequest;
+use Botble\webrobotdashboard\Http\Requests\TaskEditRequest;
 use Botble\webrobotdashboard\Repositories\Interfaces\TaskInterface;
 use Botble\webrobotdashboard\Tables\TaskTable;
 use Carbon\Carbon;
@@ -62,6 +63,8 @@ class TaskController extends BaseController
     {
         $task = $this->taskRepository->getModel();
         $task->fill($request->input());
+        if(is_null($task->sites))
+            $task->sites = '';
         $task = $this->taskRepository->createOrUpdate($task);
        //event(new CreatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
         return $response
@@ -96,9 +99,11 @@ class TaskController extends BaseController
      * @return BaseHttpResponse
      */
     public function update($id, TaskEditRequest $request, BaseHttpResponse $response)
-    {
+    { 
         $task = $this->taskRepository->findOrFail($id);
-        $task->fill($request);
+        $task->fill($request->input());
+        if(is_null($task->sites))
+        $task->sites = '';
         $task = $this->taskRepository->createOrUpdate($task);
         //event(new UpdatedTaskEvent(MEMBER_MODULE_SCREEN_NAME, $request, $task));
         return $response
